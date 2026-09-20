@@ -28,8 +28,8 @@ so a real API client can be dropped in later without changing callers. Don't add
 - One file at a time. Show me the plan for a file before writing it.
 - Ask before adding any dependency. Current allowed set is in `requirements.txt`.
 - Prefer boring, readable Python over clever Python. This will be read by a hiring manager.
-- When you are uncertain or guessing (a selector, an edge case, an API shape), say so in the moment.
-  Those moments go in `NOTES-ai-work.md` and they are the most valuable output of this project.
+- When you are uncertain or guessing (a selector, an edge case, an API shape), say so in the moment
+  rather than presenting a guess as settled. I need to know which parts are load-bearing guesses.
 
 ## Out of scope — do not add
 Database, auth, Docker, CI, deployment, more than two languages, component libraries, state management
