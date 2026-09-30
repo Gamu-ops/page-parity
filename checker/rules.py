@@ -59,14 +59,32 @@ _CURRENCIES = {
     "chf": "CHF",
 }
 
+# Every accepted spelling, English then German, one line per month. A spelling
+# shared by both languages (jan, april, sep, ...) always means the same month;
+# none means two. Keep it one line per month so that stays checkable by eye: a
+# duplicate key in a dict literal does not raise, it silently keeps the last
+# value, so a collision would turn into a wrong date rather than an error.
 _MONTHS = {
-    "january": 1, "february": 2, "march": 3, "april": 4,
-    "may": 5, "june": 6, "july": 7, "august": 8,
-    "september": 9, "october": 10, "november": 11, "december": 12,
+    "january": 1, "jan": 1, "januar": 1,
+    "february": 2, "feb": 2, "februar": 2,
+    "march": 3, "mar": 3, "märz": 3, "mär": 3,
+    "april": 4, "apr": 4,
+    "may": 5, "mai": 5,
+    "june": 6, "jun": 6, "juni": 6,
+    "july": 7, "jul": 7, "juli": 7,
+    "august": 8, "aug": 8,
+    "september": 9, "sep": 9, "sept": 9,
+    "october": 10, "oct": 10, "oktober": 10, "okt": 10,
+    "november": 11, "nov": 11,
+    "december": 12, "dec": 12, "dezember": 12, "dez": 12,
 }
 
 _DATE_NUMERIC = re.compile(r"\b(\d{1,2})\.(\d{1,2})\.(\d{4})\b")
-_DATE_WORDS = re.compile(r"\b(\d{1,2})\.?\s+([A-Za-z]+)\.?\s+(\d{4})\b")
+# The umlauts are in the character class for März: with [A-Za-z] alone the
+# regex never matches "12. März 2027", so the month table is never consulted.
+# Adding another language with accented month names means editing BOTH this
+# character class and _MONTHS.
+_DATE_WORDS = re.compile(r"\b(\d{1,2})\.?\s+([A-Za-zÄäÖöÜü]+)\.?\s+(\d{4})\b")
 
 
 def _to_decimal(token: str) -> Decimal | None:
@@ -106,15 +124,12 @@ def _currencies(text: str) -> list[str]:
 
 
 def _month_number(word: str) -> int | None:
-    """Month number for an English month name, full or three-letter."""
+    """Month number for an English or German month name, full or abbreviated."""
     # An explicit table rather than strptime("%B"), which reads the process
     # locale: on a German-locale machine "May" would stop parsing and "Mai"
     # would start, so the checker's answer would depend on who ran it.
     word = word.lower().rstrip(".")
-    for name, number in _MONTHS.items():
-        if word in (name, name[:3]):
-            return number
-    return None
+    return _MONTHS.get(word)
 
 
 def _dates(text: str) -> list[date]:
@@ -122,8 +137,8 @@ def _dates(text: str) -> list[date]:
 
     Returning real dates is what makes a format difference a non-event:
     "12.05.2027" and "12 May 2027" are the same day, so the rule has nothing to
-    report. German month names are deliberately not in the table, so
-    "12. Mai 2027" is not a date here and the rule calls it unreadable.
+    report. The same goes for "12. Mai 2027": German month names are in the
+    table, so it agrees with both.
     """
     found = []
     for match in _DATE_NUMERIC.finditer(text):
