@@ -1,0 +1,174 @@
+:root {
+  --text: #1f2328;
+  --muted: #656d76;
+  --border: #d0d7de;
+  --row-hover: #f6f8fa;
+  --error: #b42318;
+  --error-bg: #fef3f2;
+  --info: #3b5b7a;
+  --info-bg: #eef3f8;
+
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+body {
+  margin: 0;
+  background: #fff;
+}
+
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+h1 {
+  margin: 0 0 4px;
+  font-size: 1.5rem;
+}
+
+.pair {
+  margin: 0 0 24px;
+  font-family: ui-monospace, Consolas, monospace;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+/* --- states ------------------------------------------------------------- */
+
+.request-error {
+  border: 1px solid var(--error);
+  background: var(--error-bg);
+  padding: 12px 16px;
+}
+
+.request-error p {
+  margin: 0;
+}
+
+.request-error-status {
+  font-weight: 600;
+  color: var(--error);
+}
+
+.agree {
+  font-weight: 600;
+}
+
+/* --- filter ------------------------------------------------------------- */
+
+.filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  border: none;
+  padding: 0;
+  margin: 0 0 16px;
+}
+
+.filter legend {
+  float: left;
+  font-weight: 600;
+}
+
+.filter label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* --- table -------------------------------------------------------------- */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border-bottom: 1px solid var(--border);
+  padding: 8px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.finding {
+  cursor: pointer;
+}
+
+.finding:hover {
+  background: var(--row-hover);
+}
+
+/* The field button looks like plain text: the whole row is the click target,
+   the button is there for keyboard focus and aria-expanded. */
+.finding button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.finding button:focus-visible {
+  outline: 2px solid var(--info);
+  outline-offset: 2px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0 6px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+.badge.error {
+  color: var(--error);
+  background: var(--error-bg);
+}
+
+.badge.info {
+  color: var(--info);
+  background: var(--info-bg);
+}
+
+/* --- left / right ------------------------------------------------------- */
+
+.details td {
+  background: var(--row-hover);
+}
+
+.sides {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.side h3 {
+  margin: 0 0 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+/* pre-wrap keeps the line breaks in prose findings; overflow-wrap stops a
+   long URL from pushing the box wider than its column. */
+.value {
+  background: #fff;
+  border: 1px solid var(--border);
+  padding: 8px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 600px) {
+  .sides {
+    grid-template-columns: 1fr;
+  }
+}
