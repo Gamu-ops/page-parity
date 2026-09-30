@@ -1,0 +1,62 @@
+{
+  "flight-included": {
+    "expected_contradiction": true,
+    "note": "The headline case. Direct negation of the same fact."
+  },
+  "booking-help-phrasing": {
+    "expected_contradiction": false,
+    "note": "Same meaning, different wording. A naive similarity check flags this."
+  },
+  "beginners-welcome": {
+    "expected_contradiction": true,
+    "note": "Contradicts who the trip is for."
+  },
+  "group-teaching-split": {
+    "expected_contradiction": false,
+    "note": "Straight translation."
+  },
+  "equipment-rental": {
+    "expected_contradiction": true,
+    "note": "Negation again, but phrased as absence rather than 'nicht'."
+  },
+  "extra-detail-en": {
+    "expected_contradiction": false,
+    "note": "The English side adds information. Extra detail is not a contradiction."
+  },
+  "deposit-refundable": {
+    "expected_contradiction": true,
+    "note": "Commercially important and easy to get wrong in translation."
+  },
+  "weather-hedge": {
+    "expected_contradiction": false,
+    "note": "Hedged statement on both sides. Tempting to over-flag."
+  },
+  "insurance-required": {
+    "expected_contradiction": true,
+    "note": "Requirement downgraded to a recommendation. Subtle but a real defect."
+  },
+  "transfer-timing": {
+    "expected_contradiction": false,
+    "note": "Translation with restructured word order."
+  },
+  "wifi-scope": {
+    "expected_contradiction": true,
+    "note": "Not a negation. The scope differs, which is harder to spot than a 'not'."
+  },
+  "cancellation-window": {
+    "expected_contradiction": false,
+    "note": "Identical, including the number. Should be silent."
+  },
+  "meals-half-board": {
+    "expected_contradiction": true,
+    "note": "Half board is more than breakfast. Needs domain reasoning, not word matching."
+  },
+  "instructor-language": {
+    "expected_contradiction": false,
+    "note": "Control case. Trivially equal."
+  },
+  "age-minimum-prose": {
+    "expected_contradiction": false,
+    "note": "Same rule, expressed with different emphasis. Numbers match so the rules layer stays quiet."
+  }
+}

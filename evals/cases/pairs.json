@@ -1,0 +1,92 @@
+[
+  {
+    "id": "flight-included",
+    "key": "7ee8d70c73d18b45",
+    "left": "Der Flug ist nicht im Preis enthalten. Wir helfen dir gern bei der Buchung.",
+    "right": "Flights are included in the package price. We are happy to advise on connections."
+  },
+  {
+    "id": "booking-help-phrasing",
+    "key": "579671cb961ab4d2",
+    "left": "Wir helfen dir gern bei der Buchung und geben Tipps zu guenstigen Verbindungen.",
+    "right": "We are happy to advise on flights and can suggest affordable routes."
+  },
+  {
+    "id": "beginners-welcome",
+    "key": "d215e563477a07b3",
+    "left": "Anfaenger sind herzlich willkommen, wir unterrichten in kleinen Gruppen.",
+    "right": "This camp is intended for experienced riders only."
+  },
+  {
+    "id": "group-teaching-split",
+    "key": "5d7571b87187f90d",
+    "left": "Anfaenger und Fortgeschrittene werden getrennt unterrichtet.",
+    "right": "Beginners and advanced riders are taught separately."
+  },
+  {
+    "id": "equipment-rental",
+    "key": "56475c11903dac58",
+    "left": "Ein Materialverleih ist vor Ort nicht vorhanden, bitte bring deine Ausruestung mit.",
+    "right": "Equipment rental is available on site."
+  },
+  {
+    "id": "extra-detail-en",
+    "key": "9ea0a02ebda8d05c",
+    "left": "Die Unterkunft liegt zehn Gehminuten vom Strand entfernt.",
+    "right": "The accommodation is a ten-minute walk from the beach. Breakfast is served until 10am."
+  },
+  {
+    "id": "deposit-refundable",
+    "key": "86d905fc1fa08cca",
+    "left": "Die Anzahlung ist nicht erstattungsfaehig.",
+    "right": "The deposit is fully refundable up to 30 days before arrival."
+  },
+  {
+    "id": "weather-hedge",
+    "key": "903dcd2a8d26a2e7",
+    "left": "Im Mai weht der Levante meist zuverlaessig, eine Garantie gibt es aber nicht.",
+    "right": "The Levante usually blows reliably in May, though we cannot guarantee it."
+  },
+  {
+    "id": "insurance-required",
+    "key": "d29134d7100a39ca",
+    "left": "Eine eigene Reiseversicherung ist Voraussetzung fuer die Teilnahme.",
+    "right": "Travel insurance is recommended but not required."
+  },
+  {
+    "id": "transfer-timing",
+    "key": "29a15b5f9887345a",
+    "left": "Der Flughafentransfer erfolgt nach Ankunft aller Teilnehmer.",
+    "right": "Airport transfers run once all participants have arrived."
+  },
+  {
+    "id": "wifi-scope",
+    "key": "9469087b341b9ec8",
+    "left": "WLAN steht in den Gemeinschaftsraeumen zur Verfuegung.",
+    "right": "WiFi is available throughout the property, including all rooms."
+  },
+  {
+    "id": "cancellation-window",
+    "key": "3a79d1fa758ef2aa",
+    "left": "Eine kostenfreie Stornierung ist bis 30 Tage vor Anreise moeglich.",
+    "right": "Free cancellation is possible up to 30 days before arrival."
+  },
+  {
+    "id": "meals-half-board",
+    "key": "56509faf2bb9e4ae",
+    "left": "Im Preis ist Halbpension enthalten.",
+    "right": "Breakfast is included in the price."
+  },
+  {
+    "id": "instructor-language",
+    "key": "2f11a18b8c635a3a",
+    "left": "Unsere Lehrer unterrichten auf Deutsch und Englisch.",
+    "right": "Our instructors teach in German and English."
+  },
+  {
+    "id": "age-minimum-prose",
+    "key": "6205fef5564ca6fc",
+    "left": "Die Teilnahme ist ab 16 Jahren moeglich, Minderjaehrige brauchen eine Einverstaendniserklaerung.",
+    "right": "Participants must be at least 16. Under-18s need a signed parental consent form."
+  }
+]
