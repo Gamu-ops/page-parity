@@ -46,6 +46,9 @@ errors has to mean the pages agree, not "the pages agree on whatever I managed t
 checker/extract.py    HTML -> raw strings. Finds text, never interprets it.
 checker/rules.py      The deterministic comparisons.
 checker/llm_check.py  The one semantic question, and the seam an API client would replace.
+checker/check.py      Runs the rules, then the prose check, into one list of findings.
+checker/api.py        One read-only endpoint over check.py, restricted to fixtures/.
+web/                  A React page over that endpoint.
 evals/                15 labelled prose pairs, the recorded answers, and the scoring script.
 fixtures/             Two hand-built pages with five planted differences.
 ```
@@ -93,18 +96,27 @@ pages gets switched off within a week.
 saved to `evals/recorded/`. They are not hand-written fixtures, and the numbers above are measured,
 not asserted.
 
+## The page
+
+`web/` is a single React page over the endpoint: the findings as a table, a filter, and a row that
+expands to show the two values side by side. Running it is covered in `web/README.md`.
+
+It keeps four outcomes visually distinct — still loading, the request failed, the server answered
+with an error, and there is nothing to report. An empty result says the pages agree; a filter that
+hides everything says that instead. A blank table is never allowed to stand for agreement, for the
+same reason a value that cannot be read produces a finding: *didn't check* must not look like
+*fine*.
+
 ## Status
 
-Done and verified: `extract.py`, `rules.py`, `llm_check.py`, the eval set and its score. The
-deterministic rules are tested against the fixtures plus the edge cases the fixtures cannot reach —
-thousands separators, decimal commas, impossible dates, unsupported month names, missing values.
+Complete and verified end to end: extraction, the deterministic rules, the prose check, the eval
+set and its score, the endpoint, and the page. The rules are tested against the fixtures plus the
+edge cases the fixtures cannot reach — thousands separators, decimal commas, impossible dates,
+unsupported month names, missing values. The endpoint rejects paths outside `fixtures/`. The page
+was checked in all four of its states.
 
-Next:
-
-- a small React page over the findings
-- German month names in the date table (a real German page writes "12. Mai 2027", which the
-  checker currently calls unreadable)
-- a fixture variant using written-out German months, so that gap cannot silently return
-- a prompt that states the scope-and-completeness rule, and a re-run to see whether recall moves
+Still open: the prompt does not yet state the scope-and-completeness rule the eval section settles
+on. Adding it and re-running the evals would show whether recall moves off 0.71. The number in this
+README is the one measured before that change, and it stays until there is a new measurement.
 
 Built with Claude Code. The code is reviewed and owned by me.
