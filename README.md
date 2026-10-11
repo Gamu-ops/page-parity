@@ -3,7 +3,7 @@
 Compares two language variants of the same landing page and reports where they disagree —
 prices, dates, list items, calls to action, and contradictions in the prose.
 
-Work in progress. What is here works and is verified; what is not here is listed at the bottom.
+Everything here works and is verified end to end. The one thing still open is named at the bottom.
 
 ## Why
 
